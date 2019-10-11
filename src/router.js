@@ -1,55 +1,85 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue'
+import Router from 'vue-router'
 
-import Home from "./views/home/index.vue";
-import Films from "./views/home/films.vue";
-import Cinemas from "./views/home/cinemas.vue";
-import Center from "./views/home/center.vue";
+import Home from './views/home/index.vue'
+import Films from './views/home/films.vue'
+import Cinemas from './views/home/cinemas.vue'
+import Center from './views/home/center.vue'
 
-import City from "./views/city/index.vue";
-import Login from "./views/login/index.vue";
-import FilmDetail from "./views/film/index.vue";
-import Money from "./views/money/index.vue";
+import City from './views/city/index.vue'
+import Login from './views/login/index.vue'
+import FilmDetail from './views/film/index.vue'
+import Money from './views/money/index.vue'
+import Card from './views/card/index.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
-      path: "/",
+      path: '/',
       component: Home,
       children: [
         {
-          path: "films",
+          path: 'films',
           component: Films
         },
         {
-          path: "cinemas",
+          path: 'cinemas',
           component: Cinemas
         },
         {
-          path: "center",
+          path: 'center',
           component: Center
+        },
+        {
+          path: '',
+          redirect: '/films'
         }
       ]
     },
     {
-      path: "/city",
+      path: '/city',
       component: City
     },
     {
-      path: "/login",
+      path: '/login',
       component: Login
     },
     {
-      path: "/film/:id",
+      path: '/film/:id',
       component: FilmDetail
     },
     {
-      path: "/money",
-      component: Money
+      path: '/money',
+      component: Money,
+      meta: {
+        needLogin: true
+      }
+    },
+    {
+      path: '/card',
+      component: Card,
+      meta: {
+        needLogin: true
+      }
     }
   ]
-});
+})
 
-export default router;
+router.beforeEach((to, from, next) => {
+  let userInfo = window.localStorage.getItem('userInfo')
+  if (to.meta.needLogin && !userInfo) {
+    // next('/login')
+    next({
+      path: '/login',
+      query: {
+        redirect: to.fullPath
+      }
+    })
+  } else {
+    next()
+  }
+})
+
+export default router

@@ -6,15 +6,36 @@
     <router-view></router-view>
 
     <ul>
-      <li>
-        <router-link to="/films">电影</router-link>
-      </li>
-      <li>
-        <router-link to="/cinemas">影院</router-link>
-      </li>
-      <li>
-        <router-link to="/center">我的</router-link>
-      </li>
+      <router-link tag="li" to="/films">电影</router-link>
+
+      <router-link tag="li" to="/cinemas">影院</router-link>
+
+      <router-link tag="li" to="/center">我的</router-link>
     </ul>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.page-home {
+  ul {
+    height: 49px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    line-height: 49px;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #ededed;
+
+    li {
+      font-size: 12px;
+      color: #797d82;
+
+      &.router-link-active {
+        color: #ff5f16;
+      }
+    }
+  }
+}
+</style>

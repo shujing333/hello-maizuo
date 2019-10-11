@@ -4,3 +4,42 @@
     <h1>电影列表页</h1>
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+  name: 'Films',
+  created() {
+    // fetch('http://localhost:3000/todos', {
+    //   method: 'post',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     name: '火龙果',
+    //     price: 6
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(result => {
+    //     console.log(result)
+    //   })
+
+    // axios.get('http://localhost:3000/todos').then(response => {
+    //   console.log(response)
+    //   let result = response.data
+    //   console.log(result)
+    // })
+
+    axios
+      .get('http://localhost:3000/todos', {
+        params: {
+          name_like: '火'
+        }
+      })
+      .then(response => {
+        console.log(response.data)
+      })
+  }
+}
+</script>
