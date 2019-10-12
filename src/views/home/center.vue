@@ -9,10 +9,13 @@
 
     <router-link to="/money">余额</router-link>
     <router-link to="/card">卡券</router-link>
+
+    <button @click="syncTitle">点击,调用action</button>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'Center',
   data() {
@@ -20,6 +23,14 @@ export default {
     return {
       userInfo: userInfo ? JSON.parse(userInfo) : {}
     }
+  },
+
+  methods: {
+    // fn1() {
+    //   this.$store.dispatch('syncTitle')
+    // }
+
+    ...mapActions(['syncTitle'])
   }
 }
 </script>

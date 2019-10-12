@@ -13,15 +13,15 @@
 export default {
   name: 'Login',
 
-  //登录操作
+  // 登录操作
   methods: {
-    handleLogin() {
+    handleLogin () {
       window.localStorage.setItem(
         'userInfo',
         JSON.stringify({ username: '张三' })
       )
 
-      //登录成功跳转到电影列表页面
+      // 登录成功跳转到电影列表页面
       let redirect = this.$route.query.redirect || '/films'
       this.$router.replace(redirect)
     }
