@@ -6,7 +6,7 @@ export default {
 
   getters: {
     cinemaCount(state) {
-      return state.cinemasList.length
+      return state.cinemaList.length
     }
   },
 
