@@ -2,13 +2,13 @@
 import Vue from 'vue'
 // 引入vuex
 import Vuex from 'vuex'
-// 调用vuex这款插件
-Vue.use(Vuex)
-//引入拆分出去的仓库子模块
+// 引入拆分出去的仓库子模块
 import filmModel from './modules/film'
 import cinemaModel from './modules/cinemas'
+// 调用vuex这款插件
+Vue.use(Vuex)
 
-//实例化仓库的实例对象
+// 实例化仓库的实例对象
 const store = new Vuex.Store({
   modules: {
     film: filmModel,

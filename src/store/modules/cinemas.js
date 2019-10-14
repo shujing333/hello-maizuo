@@ -1,23 +1,23 @@
-//拆分出来的  影院仓库模块
+// 拆分出来的  影院仓库模块
 export default {
   state: {
     cinemaList: []
   },
 
   getters: {
-    cinemaCount(state) {
+    cinemaCount (state) {
       return state.cinemaList.length
     }
   },
 
   mutations: {
-    setCinemaList(state, payload) {
+    setCinemaList (state, payload) {
       state.cinemaList = payload
     }
   },
 
   actions: {
-    getCinemaList(context, payload) {
+    getCinemaList (context, payload) {
       setTimeout(() => {
         let result = [
           { cinemaId: 1, cinemaName: '传奇影院' },

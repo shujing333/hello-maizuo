@@ -1,22 +1,22 @@
-//拆分出来的 影片仓库模块
+// 拆分出来的 影片仓库模块
 export default {
   state: {
     filmList: []
   },
 
   getters: {
-    filmCount(state) {
+    filmCount (state) {
       return state.filmList.length
     }
   },
 
   mutations: {
-    setFilmList(state, payload) {
+    setFilmList (state, payload) {
       return (state.filmList = payload)
     }
   },
   actions: {
-    getFilmList(context, payload) {
+    getFilmList (context, payload) {
       setTimeout(() => {
         let result = [
           { filmId: 1, filmName: '中国机长' },

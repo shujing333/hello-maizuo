@@ -27,7 +27,7 @@ export default {
     // }
     ...mapMutations(['chgTitle'])
   },
-  created() {
+  created () {
     console.log(this.$store.getters.reverseTitle)
   }
 }

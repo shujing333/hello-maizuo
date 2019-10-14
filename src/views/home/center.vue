@@ -18,7 +18,7 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'Center',
-  data() {
+  data () {
     let userInfo = window.localStorage.getItem('userInfo')
     return {
       userInfo: userInfo ? JSON.parse(userInfo) : {}
